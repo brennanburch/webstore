@@ -1,6 +1,6 @@
 import { useEffect, useState} from 'react';
 import { Link,  useParams  } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from 'react-bootstrap';
+import { Row, Col, Image, ListGroup, Button, ListGroupItem } from 'react-bootstrap';
 import Rating from "../components/Rating";
 import axios from "axios";
 import React from "react";
@@ -24,10 +24,10 @@ const Productscreen = () => {
    <>
    <Link className="btn btn-light my-3" to="/">Go Back</Link>
    <Row>
-    <Col md={5}>
+    <Col md={6}>
     <Image src={product.image} alt={product.name} fluid />
     </Col>
-    <Col md={4}>
+    <Col md={6}>
       <ListGroup variant='flush'>
         <ListGroup.Item>
           <h3>{product.name}</h3>
@@ -38,12 +38,7 @@ const Productscreen = () => {
         <ListGroupItem>
           Description: {product.description}
         </ListGroupItem>
-      </ListGroup>
-    </Col>
-    <Col md={3}>
-      <Card>
-        <ListGroup>
-          <ListGroupItem>
+        <ListGroupItem>
             <Row>
               <Col>Price:</Col>
               <Col><strong>${product.price}</strong></Col>
@@ -64,9 +59,9 @@ const Productscreen = () => {
             type='button'
             disabled={product.countInStock ===0}>{product.countInStock >0 ? 'Add To Cart' : 'Out Of Stock'}</Button>
           </ListGroupItem>
-        </ListGroup>
-      </Card>
+      </ListGroup>
     </Col>
+    
 
    </Row>
    </>
